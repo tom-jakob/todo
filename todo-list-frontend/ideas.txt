@@ -1,0 +1,39 @@
+
+# Ideas that do not work yet
+
+
+Calculate Length of Todo:
+
+
+// setTimeSpan(todo:Todo):Todo {
+
+
+//   console.log(todo.timeStart + "--> todoTimeStart");
+//   console.log(todo.timeEnd + "--> todoTimeEnd");
+//   todo.timeStart = moment(todo.timeStart);
+//   todo.timeEnd = moment(todo.timeEnd);
+
+//   // todo.timeSpan = moment.duration(todo.timeEnd.diff(todo.timeStart, 'minutes')).toISOString();
+//   const daRealDuration = moment.duration(todo.timeEnd.diff(todo.timeStart, 'minutes')).toISOString();
+//   console.log(daRealDuration)
+//   console.log(todo.timeSpan + "--> timesSpan")
+//   return todo;
+// }
+
+
+
+Combine Date and Time in one Object
+
+//  getCombinedDateTime(date:Date, time:Date): Date{
+//    console.log(typeof(date) + "--> typeof date");
+//   date = new Date(date);
+//   console.log(time + "time before ")
+//   console.log(typeof(time) + "--> typeof time");
+//   time = new Date(time);
+//   console.log(typeof(date) + "--> typeof date");
+//   console.log(date + "--> date as Date")
+//   console.log(time + "--> time as Date")
+//   var datePart = date.toISOString().substring(0, 10);
+//   var timePart = time.toISOString().substring(10, 24);
+//   return new Date(datePart + timePart);
+// }

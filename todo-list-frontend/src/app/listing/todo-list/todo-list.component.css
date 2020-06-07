@@ -1,0 +1,10 @@
+body {
+    display: grid;
+    grid-template-columns: auto auto auto; 
+  }
+
+  .container { 
+    display: grid; 
+    grid-template-rows:500px 500px; 
+    grid-template-columns:50% 50%; 
+  }

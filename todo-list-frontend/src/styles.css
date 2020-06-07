@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+/*  */
+
+  /* .container { 
+    display: grid; 
+    /* grid-template-rows:50% 50%px;  */
+    /* grid-template-columns:50% 50%;  */
+  /* } */ 
+
+#done {
+  text-decoration:line-through;
+}
+
+
+
+  .wrapper{
+      margin:10%;
+  }

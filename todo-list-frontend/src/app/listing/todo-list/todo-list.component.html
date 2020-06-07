@@ -1,0 +1,109 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+<div class="wrapper">
+
+    <h1>Meine To-Do Liste</h1>
+    <div>
+        <div>
+
+            <table class="table table-striped" border="1">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Todo Titel</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Datum</th>
+                        <th scope="col">Von</th>
+                        <th scope="col">Bis</th>
+                        <th scope="col">Done?</th>
+                        <th scope="col">Bearbeiten</th>
+                        <th scope="col">Status ändern</th>
+                        <th scope="col">Löschen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    <tr *ngFor="let todo of todoList">
+                        <td></td>
+                        <td *ngIf="!todo.done">{{todo.name}}</td>
+                        <td *ngIf="todo.done" id="done">{{todo.name}}</td>
+
+                        <td *ngIf="!todo.done">{{todo.details}}</td>
+                        <td *ngIf="todo.done" id="done">{{todo.details}}</td>
+
+                        <td *ngIf="!todo.done">{{todo.date | date:"dd.MM.yyyy"}}</td>
+                        <td *ngIf="todo.done" id="done">{{todo.date | date:"dd.MM.yyyy"}}</td>
+
+                        <td *ngIf="!todo.done">{{todo.timeStart}}</td>
+                        <td *ngIf="todo.done" id="done">{{todo.timeStart}}</td>
+
+                        <td *ngIf="!todo.done">{{todo.timeEnd}}</td>
+                        <td *ngIf="todo.done" id="done">{{todo.timeEnd}}</td>
+
+                        <td *ngIf="!todo.done"><a (click) = "setDone(todo.id, todo)">&#10065;</a></td>
+                        <td *ngIf="todo.done">&#10004;</td>
+
+                        <td *ngIf="!todo.done" ><button type="button" class="btn btn-info" (click)="setToggleUpdate(todo.id)">Bearbeiten</button></td>
+                        <td *ngIf="todo.done"><button type="button"   class="btn btn-info" disabled="disabled" [routerLink]="['update']">Bearbeiten</button></td>
+                      
+                        <td *ngIf="!todo.done"><a class="btn btn-primary" (click)="setDone(todo.id, todo)">Erledigt</a></td>
+                        <td *ngIf="todo.done"><a class="btn btn-warning" (click)="setDone(todo.id, todo)">Reaktivieren</a></td>
+
+                        <td><a class="btn btn-danger" (click)="deleteTodo(todo.id)">Löschen</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+        </div>
+        <div>
+            <a class="btn btn-primary" [routerLink]="['newtodo']">new Todo</a>
+            </div>
+
+
+            <app-update 
+*ngIf="toggleUpdate"
+[todoList]="todoList" 
+[idForUpdate]="idForUpdate"
+(todoTransporter)="setUpdatedTodo($event)"
+></app-update>
+
+    </div>
+
+    <!-- <div>
+        <app-todo-details
+        *ngIf="toggleDetails"
+        [idForDetails]="idForDetails"
+        >
+
+        </app-todo-details>
+    </div> -->
+
+
+
+</div>
+
+
+
+
+
+</body>
+
+</html>

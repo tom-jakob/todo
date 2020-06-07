@@ -1,0 +1,76 @@
+<div class="wrapper">
+
+    <h2>To-Do "{{updatedTodo.name}}" bearbeiten</h2>
+
+    <form #todoForm="ngForm">
+        <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Todo Title</th>
+                    <th scope="col">Todo Details</th>
+                    <th scope="col">Todo Datum</th>
+                    <th scope="col">Von</th>
+                    <th scope="col">Bis</th>
+                    <th scope="col">Done?</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" [ngModel]="updatedTodo?.name" (ngModelChange)="updatedTodo.name = $event"
+                                class="form-control" placeholder="bitte Namen eingeben" id="name" name="name">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" [ngModel]="updatedTodo?.details"
+                                (ngModelChange)="updatedTodo.details = $event" class="form-control"
+                                placeholder="bitte Details eingeben" id="details" name="details"></div>
+                    </td>
+                    <td>
+
+
+                        <div class="form-group"><input type="date" [ngModel]="updatedTodo?.date | date:'yyyy-MM-dd'"
+                            (ngModelChange)="updatedTodo.date = $event" class="form-control" id="date" name="date">
+                    </div>          
+
+                    </td>
+
+
+                    <td>
+
+
+                        <div class="form-group"><input type="timeStart" [ngModel]="updatedTodo?.timeStart"
+                            (ngModelChange)="updatedTodo.timeStart = $event" class="form-control" 
+                            id="timeStart" name="timeStart">
+                    </div>          
+
+                    </td>
+
+                    <td>
+
+
+                        <div class="form-group"><input type="timeEnd" [ngModel]="updatedTodo?.timeEnd"
+                            (ngModelChange)="updatedTodo.timeEnd = $event" class="form-control" 
+                            id="timeEnd" name="timeEnd">
+                    </div>          
+
+                    </td>
+
+
+                    <td>
+                        <div class="form-group"><input type="checkbox" [ngModel]="updatedTodo?.done"
+                                (ngModelChange)="updatedTodo.done = $event" class="form-control" id="done" name="done">
+                        </div>
+                    </td>
+                    <td><button (click)="updateTodo()">SAVE</button> </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>

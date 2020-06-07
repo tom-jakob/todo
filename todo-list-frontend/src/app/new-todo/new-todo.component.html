@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+
+
+
+<div  *ngFor="let newTodo of newTodoList; let i=index">
+    <form #todoForm{{i}}="ngForm">
+                <table class="table table-striped" border="1" >
+                
+                    
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Todo Title</th>
+                            <th scope="col">Todo Details</th>
+                            <th scope="col">Todo Datum</th>
+                            <th scope="col">Von</th>
+                            <th scope="col">Bis</th>
+                            <th scope="col">Weitere To-Do's?</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>
+                                         <div class="form-group">
+                                    <input type="text" [ngModel]="newTodoList[i].name" (ngModelChange)="newTodoList[i].name = $event"
+                                        class="form-control" placeholder="bitte Namen eingeben" id="name{{i}}" name="name{{i}}"
+                                        required minlength="4" #name="ngModel">
+                                </div>
+
+                            </td>
+                            <td>
+                               <div class="form-group">
+                                        <input type="text" [ngModel]="newTodoList[i].details" 
+                                        (ngModelChange)="newTodoList[i].details = $event" class="form-control"
+                                            placeholder="bitte Details eingeben" id="details{{i}}" name="details{{i}}">
+                                        </div>
+                            </td>
+                            <td>
+                                <div class="form-group"><input type="date" [ngModel]="newTodoList[i].date"
+                                        (ngModelChange)="newTodoList[i].date = $event"
+                                         class="form-control" id="date{{i}}" name="date{{i}}">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="form-group"><input type="time"
+                                    [ngModel]="newTodoList[i].timeStart"
+                                        (ngModelChange)="newTodoList[i].timeStart = $event"
+                                         class="form-control" id="timeStart{{i}}" name="timeStart{{i}}">
+                                </div>
+                            </td>
+
+                        
+
+
+                            <td>
+                                <div class="form-group"><input type="time"
+                                    [ngModel]="newTodoList[i].timeEnd"
+                                        (ngModelChange)="newTodoList[i].timeEnd = $event"
+                                         class="form-control" id="timeEnd{{i}}" name="timeEnd{i}}">
+                                </div>
+                            </td>
+
+
+                            <!-- <td>
+                                <div *ngIf=" i >= newTodoList.length - 1" class="form-group"><button type="button" class="btn" id="more" name="more"
+                                     (click)="addTodoToList()">Weiteres To-Do</button></div>
+                                     <div *ngIf=" i < newTodoList.length - 1" class="form-group"><button type="button" class="btn" id="more" name="more"
+                                        (click)="removeTodo(i)">Todo Entfernen</button></div>
+
+                            </td> -->
+                            <td><button  type="button" (click)="saveTodo(i)">Speichern</button> </td>
+                        </tr>
+    
+                    </tbody>
+                
+                </table>
+            </form>
+            </div>
+            <span *ngIf="newTodoList.length >= 2"><button class="btn btn-dark" type="button" (click)="saveAll()">Alle speichern</button></span>
+
+       {{newTodoList | json}}
+       
+      
+
+    
+
+
+       
+
+</div>
+
+
+    
+
+
+</body>
+
+</html>
